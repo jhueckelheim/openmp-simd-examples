@@ -9,8 +9,9 @@ T:    B[i] = a;
 
 /*
 Dependencies:
-  S[i] -> T[i] (flow, scalar, intra-body, "lexically forward")
-
+  S(i) -> T(i) (flow, intra-body, "lexically forward")
+    dependence distance:      (0)
+    2d+1 dependence distance: (0,0,1)
 
 Possible vectorization:
 for (int i = 0; i < 2*n; i+=2) {
