@@ -12,7 +12,7 @@ Dependencies:
   S2(i) -> S1(i+1) (flow, loop-carried, "lexically backward")
     dependence distance:      (1)
     2d+1 dependence distance: (0,1,-1) (lexicographically positive)
-    Body-only 2d+1 distance:  (-1)     (lexicographically negative)
+    Body-only 2d+1 distance:      (-1) (lexicographically negative)
 
 Statement-wise vectorization (invalid):
 for (int i = 0; i < 2*n; i+=2) {
@@ -31,6 +31,9 @@ for (int i = 0; i < 2*n; i+=2) {
 
 Statement-wise vectorization possible:
   no
+
+Auto-vectorization possible:
+  yes
 
 Has loop-carried dependencies:
   yes

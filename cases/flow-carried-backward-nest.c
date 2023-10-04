@@ -14,7 +14,7 @@ Dependencies:
   S1(i,1) -> S2(i+1,0) (flow, loop-carried, "lexically forward")
     dependence distance:      (1)
     2d+1 dependence distance: (0,1,0,-1,1) (lexicographically positive)
-    Body-only 2d+1 distance:  (0,-1,1)     (lexicographically negative)
+    Body-only 2d+1 distance:      (0,-1,1) (lexicographically negative)
 
 
 Statement-wise vectorization (invalid):
@@ -37,6 +37,9 @@ for (int i = 0; i < 2*n; i+=2) {
 Statement-wise vectorization possible:
   no
 
+Auto-vectorization possible:
+  yes
+
 Has loop-carried dependencies:
   yes
 
@@ -54,4 +57,5 @@ Has defined behaviour according to OpenMP 5.2:
 
 Should be supported by OpenMP:
   ?
+
 */

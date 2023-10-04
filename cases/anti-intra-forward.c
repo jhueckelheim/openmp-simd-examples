@@ -24,6 +24,9 @@ for (int i = 0; i < 2*n; i+=2) {
 Statement-wise vectorization possible:
   yes
 
+Auto-vectorization possible:
+  yes
+
 Has loop-carried dependencies:
   no
 
