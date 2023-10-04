@@ -1,4 +1,4 @@
-/// Loop with "lexically-backward" loop-carried dependency, non-dominating gen() and use() through conditional
+/// Loop with "lexically-backward" loop-carried dependency, non-dominating gen() and use() through conditional.
 void func(int n, double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {
