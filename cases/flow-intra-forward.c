@@ -10,7 +10,7 @@ T:    B[i] = a;
 /*
 Dependencies:
   S(i) -> T(i) (flow, intra-body, "lexically forward")
-    dependence distance:      (0)
+    dependence distance:        (0)
     2d+1 dependence distance: (0,0,1)
 
 Possible vectorization:

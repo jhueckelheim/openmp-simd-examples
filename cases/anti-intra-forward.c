@@ -10,7 +10,7 @@ S2:    A[i] = gen();
 /*
 Dependencies:
   S1(i) -> S2(i) (anti, scalar, intra-body, "lexically forward")
-    dependence distance:      (0)
+    dependence distance:        (0)
     2d+1 dependence distance: (0,0,1)
 
 

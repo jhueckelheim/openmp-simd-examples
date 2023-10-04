@@ -12,7 +12,7 @@ S2:      if (j == 0) A[i+1] = gen();
 /*
 Dependencies:
   S2(i,0) -> S1(i+1,1) (flow, loop-carried, "lexically backward")
-    dependence distance:      (1,1)
+    dependence distance:        (1,  1)
     2d+1 dependence distance: (0,1,0,1,-1) (lexicographically positive)
     Body-only 2d+1 distance:      (0,1,-1) (lexicographically positive)
 
