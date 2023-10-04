@@ -34,7 +34,7 @@ Maximal assumed dependencies:
 
 Statement-wise vectorization:
 for (int i = 0; i < 2*n; i+=2) {
-  for (int j = 0; j < i+1; ++j) {
+  for (int j = 0; j < i+2; ++j) {
     if (j==0) {
       load <mask> {P[i],         P[i+1]}       -> staddr
       store<mask> {A[staddr[0]], A[staddr[1]]} <- gen()
