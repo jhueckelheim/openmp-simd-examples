@@ -54,20 +54,18 @@ for (int i = 0; i < 2*n; i+=2) {
 }
 
 
-// Auto-vectorization
+// Auto-vectorization (LLVM)
+set {poison, A[0]} -> recur
 for (int i = 0; i < 2*n; i+=2) {
-  load  {A[i],     A[i+1]   } -> u
   load  {A[i+1],   A[i+2]   } -> v
+  set   {v[0]+1,   v[1]+1   } -> incv
+  set   {recur[1], incv[0]  } -> shfv // shuffle
+  store {A[i+1],   A[i+2]   } <- incv
 
-  set   {u[0]+1,   u[1]+1   } -> incu
-  set   {incu[1],  v[1]     } -> v    // shuffle instruction
-  set   {v[0]-1,   v[1]-1   } -> decv
+  set   {shfv[0]-1,shfv[1]-1} -> decu
+  store {A[i],     A[i+1]   } <- decu
 
-  store {A[i],     A[i+1]   } <- incu
-  store {A[i+1],   A[i+2]   } <- decv
-
-  set   {u[0]+v[0],u[1]+v[1]} -> uv
-  store {B[i],     B[i+1]   } <- uv
+  set incv                    -> recur
 }
 
 */
