@@ -1,4 +1,5 @@
 /// Loop with unknown dependencies due to indirect accesses and a nested loop with variable trip count.
+// The j-loop has many empty iterations, but imagine it being full of other uses; don't want the example to become more complicated than necessary.
 void func(int n, int P[restrict], int Q[restrict], double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {

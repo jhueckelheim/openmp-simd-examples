@@ -9,7 +9,7 @@ S2:    use(A[i]);
 
 /*
 Dependencies:
-  S1(i) -> S2(i+1) (flow, loop-carried, "lexically forward")
+  S1(s) -> S2(s+1) (flow, loop-carried, "lexically forward")
       dependence distance:        (1)
       2d+1 dependence distance: (0,1,1)
       Body-only 2d+1 distance:      (1) (lexicographically positive)
