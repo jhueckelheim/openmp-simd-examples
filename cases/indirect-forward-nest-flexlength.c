@@ -29,7 +29,7 @@ Maximal assumed dependencies:
     Body-only 2d+1 distance:        (1,...) (lexicographically positive)
 
 (d) S2(s) -> S1(t,*) when t > s (anti, loop-carried)
-    dependence distance:        (t-s,  ...)
+    dependence distance:        (t-s,   ...)
     2d+1 dependence distance: (0,t-s,-1,...) (lexicographically positive)
     Body-only 2d+1 distance:        (-1,...) (lexicographically negative)
 

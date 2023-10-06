@@ -16,7 +16,7 @@ Dependencies:
     Body-only 2d+1 distance:      (?)
 
 
-// Expression-wise vectorization, first permutation (invalid):
+// Expression-wise vectorization, first permutation:
 for (int i = 0; i < 2*n; i+=2) {
   load  {A[i+1],   A[i+2]   } -> v     // A[i+1] supposed to be decremented from last iteration but hasen't yet
   set   {v[0]-1,   v[1]-1   } -> decv
