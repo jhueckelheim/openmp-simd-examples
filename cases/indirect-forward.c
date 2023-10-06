@@ -9,22 +9,22 @@ S2:    use(A[Q[i]]);
 
 /*
 Maximal assumed dependencies:
-(a) S1(i) -> S2(i) (flow, intra-body, "lexically forward")
+(a) S1(s) -> S2(s) over A[P[s]],A[Q[s]] if overlapping (flow, intra-body, "lexically forward")
     dependence distance:        (0)
     2d+1 dependence distance: (0,0,1) (lexicographically positive)
     Body-only 2d+1 distance:      (1) (lexicographically positive)
 
-(b) S1(i) -> S2(j) when j > i (flow, loop-carried, "lexically forward")
+(b) S1(s) -> S2(t) if t > s (flow, loop-carried, "lexically forward")
     dependence distance:        (+)
     2d+1 dependence distance: (0,+,1) (lexicographically positive)
     Body-only 2d+1 distance:      (1) (lexicographically positive)
 
-(c) S2(i) -> S1(j) when j > i (anti, loop-carried, "lexically backward")
+(c) S2(s) -> S1(t) if t > s (anti, loop-carried, "lexically backward")
     dependence distance:        (+)
     2d+1 dependence distance: (0,+,-1) (lexicographically positive)
     Body-only 2d+1 distance:      (-1) (lexicographically negative)
 
-(d) S1(i) -> S1(j) when j > i (output, loop-carried, "lexically backward")
+(d) S1(s) -> S1(t) if t > s (output, loop-carried, "lexically backward")
     dependence distance:        (+)
     2d+1 dependence distance: (0,+,0) (lexicographically positive)
     Body-only 2d+1 distance:      (0) (lexicographically zero)
