@@ -2,7 +2,7 @@
 void func(int n, double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {
-       auto call = []() [[gnu::always_inline]] {
+       auto call = [&]() [[gnu::always_inline]] {
 S1:      A[i+1] = gen();
        };
 S2:    use(A[i]);
