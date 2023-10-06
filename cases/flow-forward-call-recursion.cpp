@@ -9,6 +9,6 @@ void func(int n, double A[restrict]) {
          if (j > 1) call(j-1);
        };
        call(i);
-       use(A[j]);
+       use(A[i]);
      }
 }
