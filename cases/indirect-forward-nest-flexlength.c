@@ -4,8 +4,8 @@
 void func(int n, int P[restrict], int Q[restrict], double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {
-       for (int j = 0; j < i+1; ++j) {
-S1:      A[P[i]] = gen(j);
+       for (int j = 0; j < 2*i; ++j) {
+S1:      A[P[i]] = gen(j); // Always same address, so it's effectively  `if(i > 0) A[P[i]] = gen(2*i-1)`
        }
 S2:    use(A[Q[i]]);
      }
@@ -13,12 +13,12 @@ S2:    use(A[Q[i]]);
 
 /*
 Maximal assumed dependencies:
-(a) S1(s,t) -> S1(s,u) if t<u<=s over A[P[i]] (output, intra-body)
+(a) S1(s,t) -> S1(s,u) if t<u<2*s over A[P[i]] (output, intra-body)
     dependence distance:        (0,  +)
     2d+1 dependence distance: (0,0,0,+,1) (lexicographically positive)
     Body-only 2d+1 distance:      (0,+,1) (lexicographically positive)
 
-(b) S1(s,*) -> S2(s) over A[P[i]],A[Q[i]] if overlapping (flow, intra-body)
+(b) S1(s,*) -> S2(s) over A[P[s]],A[Q[s]] if overlapping (flow, intra-body)
     dependence distance:        (0,  ...)
     2d+1 dependence distance: (0,0,1,...) (lexicographically positive)
     Body-only 2d+1 distance:      (1,...) (lexicographically positive)
@@ -41,10 +41,9 @@ Maximal assumed dependencies:
 
 Statement-wise vectorization:
 for (int i = 0; i < 2*n; i+=2) {
-  for (int j = 0; j < i+2; ++j) {
-      set         {j<i+1,        j+1<i+1}      -> mask
-      load <mask> {P[i],         P[i+1]}       -> staddr
-      store<mask> {A[staddr[0]], A[staddr[1]]} <- gen()
+  for (int j = 0; j < 2*i; j+=2) {
+      load  {P[i],         P[i+1]}       -> staddr
+      store {A[staddr[0]], A[staddr[1]]} <- gen(j)
     }
     load {Q[i],         Q[i+1]}       -> ldaddr
     load {A[ldaddr[0]], A[ldaddr[1]]} -> use()
