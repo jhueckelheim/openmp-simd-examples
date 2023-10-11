@@ -3,6 +3,10 @@
 ! if the compiler does not use short-curcuiting, but can be
 ! vectorized if the compiler short-circuits.
 
+! Observe this example being vectorized (or not) by gfortran with
+! gfortran -fopenmp short-circuit.f90 -Ofast -msse2 -ftree-vectorize -fopt-info-vec-missed -c -fno-frontend-optimize
+! (leave the last option away to enable short-circuiting)
+
 ! A function that always returns true, and has a side-effect
 ! since it modifies its input variable
 function gen_ret_true(a)
