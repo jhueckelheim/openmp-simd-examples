@@ -1,6 +1,6 @@
 /// Loop with a statement that a naive front-end vectorizer would match up differently.
 /// Difference caused by conditional statement.
-/// An implementatation could just ensure that the last store survives, but we consider ever store even if overwritten as significant.
+/// An implementatation could just ensure that the last store survives, but we consider every store even if overwritten as significant.
 void func(int P[restrict][2], double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2; ++i) {

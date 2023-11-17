@@ -1,4 +1,4 @@
-/// loop-carried backward depdency (not vectorized LLVM)
+/// loop-carried backward dependency (not vectorized LLVM)
 /// Without -ffast-math, increment and decrement order must not be exchanged.
 void func(int n, double A[restrict]) {
 #pragma omp simd simdlen(2)

@@ -3,7 +3,7 @@
 /// While source code order can be used here, there are countless variants that where S2 comes before S1 in the source (e.g. preprocessor, call, inner loop, ...)
 /// Would need to explicitly define
 ///   1. For the purpose of if-conversion/vectorization, the if-part is considered to executed before the else part.
-//    2. An OpenMP program that depends on the order of then then and else parts of a condition is not conformant (-> can break dependencies that result from any order)
+///   2. An OpenMP program that depends on the order of then then and else parts of a condition is not conformant (-> can break dependencies that result from any order)
 void func(int n, double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {

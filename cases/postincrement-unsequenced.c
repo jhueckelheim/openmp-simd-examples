@@ -1,5 +1,5 @@
 /// Order of evaluation unsequenced in C/C++.
-/// Note that the result is well-defined since withing the same statement execution, A[i] and A[i+1] are different memory locations.
+/// Note that the result is well-defined since withing the same statement execution, A[i], A[i+1] and B[i] (by __restrict) are different memory locations.
 void func(int n, long A[restrict], long B[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {

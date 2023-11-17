@@ -9,9 +9,10 @@ S2:    A[i] = gen();
 
 /*
 Dependencies:
-  S1(i) -> S2(i) (anti, scalar, intra-body, "lexically forward")
+  S1(s) -> S2(s) (anti, scalar, intra-body, "lexically forward")
     dependence distance:        (0)
-    2d+1 dependence distance: (0,0,1)
+    2d+1 dependence distance: (0,0,1) (lexicographically positive)
+    Body-only 2d+1 distance:      (1) (lexicographically positive)
 
 
 Possible vectorization:

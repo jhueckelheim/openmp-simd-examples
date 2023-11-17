@@ -1,4 +1,4 @@
-/// /// Nested foreach-loop with non-numeric loop iteration "identifier".
+/// Nested foreach-loop with non-numeric loop iteration "identifier".
 void func(int n, int P[restrict], int Q[restrict], double A[restrict]) {
    std::unordered_set<std::string> rope[2] = { {"mark", "my"}, {"my", "words"} };
 

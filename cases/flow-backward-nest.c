@@ -1,4 +1,4 @@
-/// Same as flow-carried-backward, but inversed statement order by nesting into another loop
+/// Same as flow-backward, but inversed statement order by nesting into another loop
 void func(int n, double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {

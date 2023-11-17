@@ -1,4 +1,4 @@
-/// Loop with unknown dependencies due to indirect accesses, lexically reversed using loop nest.
+/// Loop with unknown dependencies due to indirect accesses, lexically reversed using a loop nest.
 void func(int n, int P[restrict], int Q[restrict], double A[restrict]) {
 #pragma omp simd simdlen(2)
      for (int i = 0; i < 2*n; ++i) {
